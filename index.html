@@ -1,0 +1,35 @@
+
+flowchart TD
+    A1([start]) --> A2{catcherrors}
+    A2 -->|Try| A3{branch}
+    A2 -->|Catch| A16[notify] 
+    A3 -->|1| A4[QUERY+netsuitesdk]
+    A3 -->|2| A9{Customer Exist?}
+    A4 --> A5[doccacheload]
+    A5 --> B1
+    A9 -->|True| A10[Canonical Customer to Update NS Customer]
+    A9 -->|False| A11[Canonical Customer to Create Customer]
+    A10 --> A6[UPDATE+netsuitesdk]
+    A11 --> A7[CREATE+netsuitesdk]
+    A6 --> A8{Is Success?}
+    A7 --> A8
+    A8 -->|True| A12[doccacheload]
+    A8 -->|False| A13[map]
+    A13 --> A14[notify]
+    A14 --> A15[notify]
+    A15 --> (stop)
+    A12 --> B2
+    A16 --> A17(exception)
+
+    subgraph ProcessingError
+    A16 --> A17
+    A17 --> A18
+    end
+
+    subgraph B1
+    A4 --> A5
+    end
+
+    subgraph B2
+    A12 --> A15
+    end

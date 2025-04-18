@@ -1,0 +1,9 @@
+
+flowchart TD
+    A[start] --> B[message]
+    B --> C[documentproperties]
+    C --> D[dataprocess]
+    D --> E{decision}
+    E -- True --> F[doccacheload]
+    E -- False --> G[map]
+    G --> H(stop)

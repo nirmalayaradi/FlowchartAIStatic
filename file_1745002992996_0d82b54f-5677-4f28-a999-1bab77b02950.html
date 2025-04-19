@@ -1,9 +1,0 @@
-
-flowchart LR
-    shape1[start] --> shape2[message]
-    shape2 --> shape8[documentproperties]
-    shape8 --> shape4[dataprocess]
-    shape4 --> shape6{decision}
-    shape6 -->|True| shape7[doccacheload]
-    shape6 -->|False| shape3[map]
-    shape3 --> shape10(stop)

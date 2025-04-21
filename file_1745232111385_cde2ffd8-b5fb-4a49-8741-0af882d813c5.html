@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.2.4/mermaid.min.js"></script>
+    <title>Mermaid Flowchart</title>
+</head>
+<body>
+    <div id="flowchart">
+        <pre class="mermaid">
+        
+flowchart TD
+    shape1[start] --> shape58[Get+disk]
+    shape58 --> shape64[documentproperties]
+    shape64 --> shape66[message]
+    shape66 --> shape65[map]
+    shape65 --> shape62[documentproperties]
+    shape62 --> shape63[Send+http]
+    shape63 --> shape73[message]
+    shape73 --> shape72(stop)
+    shape64 --> shape60[dataprocess]
+    shape60 --> shape68[dataprocess]
+    shape68 --> shape69[dataprocess]
+    shape69 --> shape71[map]
+    shape71 --> shape70[CREATE+boomiapi]
+    shape70 --> shape59(stop)
+    shape64 --> shape65[map]
+
+        </pre>
+    </div>
+    <script>
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+</body>
+</html>

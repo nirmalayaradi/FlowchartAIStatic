@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.2.4/mermaid.min.js"></script>
+    <title>Mermaid Flowchart</title>
+</head>
+<body>
+    <div id="flowchart">
+        <pre class="mermaid">
+        
+flowchart TD
+    shape1[start]
+
+    shape1 -- "shape1.dragpoint1" --> shape27[documentproperties]
+    shape27 -- "shape27.dragpoint1" --> shape24[actionTypeGET+connectorTypeboomiapi]
+    shape24 -- "shape24.dragpoint1" --> shape10[dataprocess]
+    shape10 -- "shape10.dragpoint1" --> shape16[documentproperties]
+    shape16 -- "shape16.dragpoint1" --> shape15[message]
+    shape15 -- "shape15.dragpoint1" --> shape19[map]
+    shape19 -- "shape19.dragpoint1" --> shape14[documentproperties]
+    shape14 -- "shape14.dragpoint1" --> shape6[actionTypeSend+connectorTypehttp]
+    shape6 -- "shape6.dragpoint1" --> shape3{decision}
+    shape3 -- "True" --> shape5[message]
+    shape5 -- "shape5.dragpoint1" --> shape11[dataprocess]
+    shape11 -- "shape11.dragpoint1" --> shape20[documentproperties]
+    shape20 -- "shape20.dragpoint1" --> shape7[dataprocess]
+    shape7 -- "shape7.dragpoint1" --> shape8{branch}
+    shape8 -- "1" --> shape2[message]
+    shape2 -- "shape2.dragpoint1" --> shape4(stop)
+
+    shape3 -- "False" --> shape25[documentproperties]
+    shape25 -- "shape25.dragpoint1" --> shape13(exception)
+
+    shape8 -- "2" --> shape21[dataprocess]
+    shape21 -- "shape21.dragpoint1" --> shape22[documentproperties]
+    shape22 -- "shape22.dragpoint1" --> shape12[actionTypeSend+connectorTypemail]
+    shape12 -- "shape12.dragpoint1" --> shape23(stop)
+
+    shape8 -- "3" --> shape40[message]
+    shape40 -- "shape40.dragpoint1" --> shape37[dataprocess]
+    shape37 -- "shape37.dragpoint1" --> shape34[documentproperties]
+    shape34 -- "shape34.dragpoint1" --> shape36[message]
+    shape36 -- "shape36.dragpoint1" --> shape35[actionTypeSend+connectorTypehttp]
+    shape35 -- "shape35.dragpoint1" --> shape38[message]
+    shape38 -- "shape38.dragpoint1" --> shape41[returndocuments]
+
+    shape29[message]
+
+
+        </pre>
+    </div>
+    <script>
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+</body>
+</html>

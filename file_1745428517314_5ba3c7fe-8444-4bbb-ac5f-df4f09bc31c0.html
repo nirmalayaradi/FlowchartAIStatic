@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.2.4/mermaid.min.js"></script>
+    <title>Mermaid Flowchart</title>
+</head>
+<body>
+    <div id="flowchart">
+        <pre class="mermaid">
+        
+graph TD;
+    shape1[start] --> shape27[documentproperties];
+    shape27 --> shape24[GET+boomiapi];
+    shape24 --> shape10[dataprocess];
+    shape10 --> shape16[documentproperties];
+    shape16 --> shape15[message];
+    shape15 --> shape19[map];
+    shape19 --> shape14[documentproperties];
+    shape14 --> shape6[Send+http];
+    shape6 --> shape3{decision};
+    shape3 -- True --> shape5[message];
+    shape5 --> shape11[dataprocess];
+    shape11 --> shape20[documentproperties];
+    shape20 --> shape7[dataprocess];
+    shape7 --> shape8{branch};
+    shape8 -->|1| shape2[message];
+    shape2 --> shape18[documentproperties];
+    shape18 --> shape4(stop);
+    shape8 -->|2| shape21[dataprocess];
+    shape21 --> shape22[documentproperties];
+    shape22 --> shape12[Send+mail];
+    shape12 --> shape23(stop);
+    shape8 -->|3| shape40[message];
+    shape40 --> shape37[dataprocess];
+    shape37 --> shape34[documentproperties];
+    shape34 --> shape36[message];
+    shape36 --> shape35[Send+http];
+    shape35 --> shape38[message];
+    shape38 --> shape41[returndocuments];
+    shape3 -- False --> shape25[documentproperties];
+    shape25 --> shape13(exception);
+
+        </pre>
+    </div>
+    <script>
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+</body>
+</html>

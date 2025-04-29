@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.2.4/mermaid.min.js"></script>
+    <title>Mermaid Flowchart</title>
+</head>
+<body>
+    <div id="flowchart">
+        <pre class="mermaid">
+        
+flowchart TD
+    shape1([start]) --> shape2{{catcherrors}}
+    shape2 -->|Try| shape17{{branch}}
+    shape2 -->|Catch| shape53[notify]
+    shape17 -->|1| shape37[QUERY+netsuitesdk]
+    shape17 -->|2| shape9{{Customer Exist?}}
+    shape37 --> shape19[doccacheload]
+    shape9 -->|True| shape15[Canonical Customer to Update NS Customer]
+    shape9 -->|False| shape16[Canonical Customer to Create Customer]
+    shape15 --> shape14[UPDATE+netsuitesdk]
+    shape16 --> shape5[CREATE+netsuitesdk]
+    shape14 --> shape20{{Is Success?}}
+    shape5 --> shape20
+    shape20 -->|True| shape48[doccacheload]
+    shape20 -->|False| shape41[]
+    shape41 --> shape49[notify]
+    shape49 --> shape52[notify]
+    shape52 --> shape50(stop)
+    shape48 --> shape54(stop)
+    shape53 --> shape47(exception)
+
+        </pre>
+    </div>
+    <script>
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+</body>
+</html>

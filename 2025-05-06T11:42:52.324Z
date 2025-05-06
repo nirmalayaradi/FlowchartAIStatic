@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.2.4/mermaid.min.js"></script>
+    <title>Mermaid Flowchart</title>
+</head>
+<body>
+    <div id="flowchart">
+        <pre class="mermaid">
+        
+flowchart TD
+    shape1([start])
+    shape57[[message]]
+    shape54[documentproperties]
+    shape45[GET+boomiapi]
+    shape11[documentproperties]
+    shape14[[message]]
+    shape16[map]
+    shape5[documentproperties]
+    shape6[Send+http]
+    shape46{decision}
+    shape17[[message]]
+    shape18[[dataprocess]]
+    shape21[documentproperties]
+    shape51[[dataprocess]]
+    shape39{branch}
+    shape40[[message]]
+    shape43[documentproperties]
+    shape41((stop))
+    shape62[[message]]
+    shape35[documentproperties]
+    shape36[Send+mail]
+    shape34((stop))
+    shape64[[message]]
+    shape70[[dataprocess]]
+    shape65[documentproperties]
+    shape66[[message]]
+    shape63[Send+http]
+    shape68[[message]]
+    shape69[returndocuments]
+    shape47[documentproperties]
+    shape49((exception))
+    shape56[returndocuments]
+    shape58[[message]]
+
+    shape1 --> shape57
+    shape57 --> shape54
+    shape54 --> shape45
+    shape45 --> shape11
+    shape11 --> shape14
+    shape14 --> shape16
+    shape16 --> shape5
+    shape5 --> shape6
+    shape6 --> shape46
+    shape46 -->|True| shape17
+    shape46 -->|False| shape47
+    shape17 --> shape18
+    shape18 --> shape21
+    shape21 --> shape51
+    shape51 --> shape39
+    shape39 -->|1| shape40
+    shape40 --> shape43
+    shape43 --> shape41
+    shape39 -->|2| shape62
+    shape62 --> shape35
+    shape35 --> shape36
+    shape36 --> shape34
+    shape39 -->|3| shape64
+    shape64 --> shape70
+    shape70 --> shape65
+    shape65 --> shape66
+    shape66 --> shape63
+    shape63 --> shape68
+    shape68 --> shape69
+    shape47 --> shape49
+    shape51 --> shape56
+    shape51 --> shape58
+
+        </pre>
+    </div>
+    <script>
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+</body>
+</html>

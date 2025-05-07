@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.2.4/mermaid.min.js"></script>
+    <title>Mermaid Flowchart</title>
+</head>
+<body>
+    <div id="flowchart">
+        <pre class="mermaid">
+        
+flowchart TD
+    shape1([start]) -->|shape1.dragpoint1| shape27[documentproperties]
+    shape27 -->|shape27.dragpoint1| shape24[GET+boomiapi]
+    shape24 -->|shape24.dragpoint1| shape16[documentproperties]
+    shape16 -->|shape16.dragpoint1| shape15[User Input]
+    shape15 -->|shape15.dragpoint1| shape19[map]
+    shape19 -->|shape19.dragpoint1| shape14[documentproperties]
+    shape14[Set of Authorization and Request] -->|shape14.dragpoint1| shape6[Send+http]
+    shape6 -->|shape6.dragpoint1| shape3{decision}
+    shape3 -->|True| shape5[extract the Flow chart code from the response]
+    shape5 -->|shape5.dragpoint1| shape11[Remove additional  using SearchReplace]
+    shape11 -->|shape11.dragpoint1| shape20[documentproperties]
+    shape20 -->|shape20.dragpoint1| shape7[Code]
+    shape7 -->|shape7.dragpoint1| shape46{branch}
+    shape46 -->|1| shape53[Mail Body]
+    shape46 -->|2| shape54[HTML Data]
+    shape46 -->|3| shape50[Git_payload]
+    shape53 -->|shape53.dragpoint1| shape42[documentproperties]
+    shape42 -->|shape42.dragpoint1| shape44(stop)
+    shape54 -->|shape54.dragpoint1| shape47[documentproperties]
+    shape47 -->|shape47.dragpoint1| shape52[Send+mail]
+    shape52 -->|shape52.dragpoint1| shape51(stop)
+    shape50 -->|shape50.dragpoint1| shape57[Script for DPP_Content ]
+    shape57 -->|shape57.dragpoint1| shape45[Git_Repo&msg]
+    shape45 -->|shape45.dragpoint1| shape55[Git_payload]
+    shape55 -->|shape55.dragpoint1| shape43[Send+http]
+    shape43 -->|shape43.dragpoint1| shape49[Return Data]
+    shape49 -->|shape49.dragpoint1| shape56[returndocuments]
+    shape3 -->|False| shape25[documentproperties]
+    shape25 -->|shape25.dragpoint1| shape13(exception)
+
+
+        </pre>
+    </div>
+    <script>
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+</body>
+</html>

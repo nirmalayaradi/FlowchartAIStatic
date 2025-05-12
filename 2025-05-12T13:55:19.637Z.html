@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.2.4/mermaid.min.js"></script>
+    <title>Mermaid Flowchart</title>
+</head>
+<body>
+    <div id="flowchart">
+        <pre class="mermaid">
+        
+flowchart TD
+    start1[start] --> documentproperties3[DPP_Email_and _Component_ID]
+    documentproperties3 --> connectoraction2[GET+boomiapi]
+    connectoraction2 --> documentproperties4[DPP_process_Component,DPP_Prompt]
+    documentproperties4 --> message5[User Input]
+    message5 --> map7
+    map7 --> documentproperties6[Set of Authorization and Request]
+    documentproperties6 --> Send+http8
+    Send+http8 --> {decision}11
+    {decision}11 -- True --> message14[extract the Flow chart code from the response]
+    {decision}11 -- False --> documentproperties12[DPP_Error]
+    documentproperties12 --> (exception)13
+    message14 --> [dataprocess]15
+    [dataprocess]15 --> documentproperties16[documentproperties]
+    documentproperties16 --> [dataprocess]17
+    [dataprocess]17 --> {branch}18
+    {branch}18 -- 1 --> message19[message]
+    message19 --> documentproperties20[documentproperties]
+    documentproperties20 --> (stop)21
+    {branch}18 -- 2 --> message23[message]
+    message23 --> documentproperties22[Mail_Properties]
+    documentproperties22 --> Send+mail24
+    Send+mail24 --> (stop)25
+    {branch}18 -- 3 --> message26[HTML Data]
+    message26 --> [dataprocess]27
+    [dataprocess]27 --> documentproperties28[Git_Repo&msg]
+    documentproperties28 --> message29[Git_payload]
+    message29 --> Get+http30
+    Get+http30 --> message31[message]
+    message31 --> [returndocuments]32
+
+        </pre>
+    </div>
+    <script>
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+</body>
+</html>

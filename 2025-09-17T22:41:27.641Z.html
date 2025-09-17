@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.2.4/mermaid.min.js"></script>
+    <title>Mermaid Flowchart</title>
+</head>
+<body>
+    <div id="flowchart">
+        <pre class="mermaid">
+        
+flowchart TD
+    start1([start])
+    shape27[documentproperties] --> shape24[GET+boomiapi]
+    shape24[GET+boomiapi] --> shape16[documentproperties]
+    shape16[documentproperties] --> shape15[message]
+    shape15[message] --> shape19[map]
+    shape19[map] --> shape14[documentproperties]
+    shape14[documentproperties] --> shape6[Send+http]
+    shape6[Send+http] --> decision3{decision}
+    decision3{decision} -->|True| shape5[message]
+    shape5[message] --> shape11[dataprocess]
+    shape11[dataprocess] --> shape20[documentproperties]
+    shape20[documentproperties] --> shape7[dataprocess]
+    shape7[dataprocess] --> branch46{branch}
+    branch46{branch} -->|1| shape53[message]
+    branch46{branch} -->|2| shape54[message]
+    branch46{branch} -->|3| shape50[message]
+    shape53[message] --> shape42[documentproperties]
+    shape42[documentproperties] --> shape44(stop)
+    shape54[message] --> shape47[documentproperties]
+    shape47[documentproperties] --> shape52[Send+mail]
+    shape52[Send+mail] --> shape51(stop)
+    shape50[message] --> shape57[dataprocess]
+    shape57[dataprocess] --> shape45[documentproperties]
+    shape45[documentproperties] --> shape55[message]
+    shape55[message] --> shape43[Send+http]
+    shape43[Send+http] --> shape49[message]
+    shape49[message] --> shape56[returndocuments]
+    decision3{decision} -->|False| shape25[documentproperties]
+    shape25[documentproperties] --> shape13(exception)
+
+        </pre>
+    </div>
+    <script>
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+</body>
+</html>

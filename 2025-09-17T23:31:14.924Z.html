@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.2.4/mermaid.min.js"></script>
+    <title>Mermaid Flowchart</title>
+</head>
+<body>
+    <div id="flowchart">
+        <pre class="mermaid">
+        
+flowchart TD
+    shape1[start] --> shape3[DPP_Email_and _Component_ID]
+    shape3[DPP_Email_and _Component_ID] --> shape2[GETboomiapi]
+    shape2[GETboomiapi] --> shape4[DPP_process_Component,DPP_Prompt]
+    shape4[DPP_process_Component,DPP_Prompt] --> shape5[message]
+    shape5[message] --> shape7[map]
+    shape7[map] --> shape6[Set of Authorization and Request]
+    shape6[Set of Authorization and Request] --> shape8[Sendhttp]
+    shape8[Sendhttp] --> shape11{decision}
+    shape11{decision} -- True --> shape14[extract the Flow chart code from the response]
+    shape11{decision} -- False --> shape12[DPP_Error]
+    shape12[DPP_Error] --> shape13(exception)
+    shape14[extract the Flow chart code from the response] --> shape15[dataprocess]
+    shape15[dataprocess] --> shape16[documentproperties]
+    shape16[documentproperties] --> shape17[dataprocess]
+    shape17[dataprocess] --> shape18{branch}
+    shape18{branch} -- 1 --> shape19[message]
+    shape18{branch} -- 2 --> shape23[message]
+    shape18{branch} -- 3 --> shape26[HTML Data]
+    shape19[message] --> shape20[documentproperties]
+    shape20[documentproperties] --> shape21(stop)
+    shape23[message] --> shape22[Mail_Properties]
+    shape22[Mail_Properties] --> shape24[Sendmail]
+    shape24[Sendmail] --> shape25(stop)
+    shape26[HTML Data] --> shape27[dataprocess]
+    shape27[dataprocess] --> shape28[Git_Repo&msg]
+    shape28[Git_Repo&msg] --> shape29[Git_payload]
+    shape29[Git_payload] --> shape30[Gethttp]
+    shape30[Gethttp] --> shape31[message]
+    shape31[message] --> shape32[returndocuments]
+
+        </pre>
+    </div>
+    <script>
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+</body>
+</html>
